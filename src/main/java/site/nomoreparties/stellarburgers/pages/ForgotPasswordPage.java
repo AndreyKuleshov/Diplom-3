@@ -1,5 +1,6 @@
 package site.nomoreparties.stellarburgers.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +15,7 @@ public class ForgotPasswordPage {
 
     @FindBy(xpath = ".//a[text()='Войти']")
     private WebElement enterLink;
-
+    @Step("ForgotPassword page. Enter link click")
     public LoginPage enterLinkClick() {
         enterLink.click();
         return new LoginPage(driver);

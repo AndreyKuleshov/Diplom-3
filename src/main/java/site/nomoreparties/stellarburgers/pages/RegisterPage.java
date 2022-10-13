@@ -1,5 +1,6 @@
 package site.nomoreparties.stellarburgers.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,26 +25,32 @@ public class RegisterPage {
     @FindBy(xpath = ".//p[text()='Некорректный пароль']")
     private WebElement incorrectPasswordErrorText;
 
+    @Step("RegisterPage. Input name")
     public RegisterPage inputName(String text) {
         nameInput.sendKeys(text);
         return this;
     }
+    @Step("RegisterPage. Input email")
     public RegisterPage inputEmail(String text) {
         emailInput.sendKeys(text);
         return this;
     }
+    @Step("RegisterPage. Input password")
     public RegisterPage inputPassword(String text) {
         passwordInput.sendKeys(text);
         return this;
     }
+    @Step("RegisterPage. Register button click (login, email, password are correct)")
     public LoginPage registerButtonClickSuccess() {
         registerButton.click();
         return new LoginPage(driver);
     }
+    @Step("RegisterPage. Register button click (some data is incorrect)")
     public RegisterPage registerButtonClickFailure() {
         registerButton.click();
         return this;
     }
+    @Step("RegisterPage. Password error is visible")
     public boolean passwordErrorIsVisible() {
         return incorrectPasswordErrorText.isDisplayed();
     }

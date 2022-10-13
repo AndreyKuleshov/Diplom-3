@@ -1,5 +1,6 @@
 package site.nomoreparties.stellarburgers.driverSetup;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -30,6 +31,7 @@ public class DriverSetup {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         return driver;
     }
+    @Step("Login")
     public void login(HomePage homePage, TestData testData) {
         homePage.clickEnterButton()
                 .inputEmail(testData.getEMAIL_REAL())

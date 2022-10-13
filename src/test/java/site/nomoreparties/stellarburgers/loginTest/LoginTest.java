@@ -1,5 +1,7 @@
 package site.nomoreparties.stellarburgers.loginTest;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
 import site.nomoreparties.stellarburgers.pages.HomePage;
@@ -7,6 +9,8 @@ import site.nomoreparties.stellarburgers.pages.HomePage;
 public class LoginTest extends LoginBaseClass {
 
     @Test
+    @DisplayName("Login from main page")
+    @Description("Логин пользователя с главной страницы")
     public void loginFromMainPage() {
         HomePage homePage = new HomePage(driver);
         String name = homePage.clickEnterButton()
@@ -18,6 +22,8 @@ public class LoginTest extends LoginBaseClass {
         Assert.assertEquals(testData.getNAME_REAL(), name);
     }
     @Test
+    @DisplayName("Login from account page")
+    @Description("Логин пользователя со страницы личного кабинета")
     public void loginFromAccountPage() {
         HomePage homePage = new HomePage(driver);
         String name = homePage.clickAccountLink()
@@ -29,6 +35,8 @@ public class LoginTest extends LoginBaseClass {
         Assert.assertEquals(testData.getNAME_REAL(), name);
     }
     @Test
+    @DisplayName("Login from registration page")
+    @Description("Логин пользователя со страницы регистрации")
     public void loginFromRegistrationPage() {
         HomePage homePage = new HomePage(driver);
         String name = homePage.clickAccountLink()
@@ -42,6 +50,8 @@ public class LoginTest extends LoginBaseClass {
         Assert.assertEquals(testData.getNAME_REAL(), name);
     }
     @Test
+    @DisplayName("Login from password recovery page")
+    @Description("Логин пользователя со страницы восстановления пароля")
     public void loginFromRecoverPasswordPage() {
         HomePage homePage = new HomePage(driver);
         String name = homePage.clickAccountLink()

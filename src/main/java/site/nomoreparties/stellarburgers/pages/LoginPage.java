@@ -1,5 +1,6 @@
 package site.nomoreparties.stellarburgers.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,31 +27,37 @@ public class LoginPage {
     private WebElement recoverPasswordLink;
 
 
-
+    @Step("LoginPage. Register link click")
     public RegisterPage registerLinkClick() {
         registerLink.click();
         return new RegisterPage(driver);
     }
+    @Step("LoginPage. Enter header is nisible")
     public boolean enterHeadingIsVisible() {
         return enterHeading.isDisplayed();
     }
+    @Step("LoginPage. Input email")
     public LoginPage inputEmail(String text) {
         emailInput.sendKeys(text);
         return this;
     }
+    @Step("LoginPage. Input password")
     public LoginPage inputPassword(String text) {
         passwordInput.sendKeys(text);
 //        passwordInput.sendKeys(Keys.ENTER);
         return this;
     }
+    @Step("LoginPage. Enter button click")
     public HomePage enterButtonClick() {
         enterButton.click();
         return new HomePage(driver).placeOrderButtonIsDisplayed();
     }
+    @Step("LoginPage. Enter button is visible")
     public boolean enterButtonIsVisible() {
         enterButton.click();
         return enterButton.isDisplayed();
     }
+    @Step("LoginPage. Recover password link click")
     public ForgotPasswordPage recoverPasswordLinkClick() {
         recoverPasswordLink.click();
         return new ForgotPasswordPage(driver);
