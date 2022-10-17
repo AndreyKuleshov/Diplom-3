@@ -1,32 +1,17 @@
 package site.nomoreparties.stellarburgers.testData;
 
+import io.qameta.allure.Step;
 import org.apache.commons.lang3.RandomStringUtils;
+import site.nomoreparties.stellarburgers.api.ApiClient;
+import site.nomoreparties.stellarburgers.api.User;
+import site.nomoreparties.stellarburgers.api.UserCredentials;
+import site.nomoreparties.stellarburgers.api.UserData;
 
 public class TestData {
-    private final String NAME_REAL = "Andrey";
-    private final String EMAIL = String.format("%s@yandex.ru", RandomStringUtils.randomAlphanumeric(10));
-    private final String EMAIL_REAL = "greenolls180885@yandex.ru";
-    private final String PASSWORD_REAL = "180885";
-    private final String PASSWORD = RandomStringUtils.randomAlphanumeric(6);
     private final String BUNS = "Булки";
     private final String SOUSE = "Соусы";
     private final String FILLING = "Начинки";
 
-    public String getEMAIL() {
-        return EMAIL;
-    }
-    public String getPASSWORD() {
-        return PASSWORD;
-    }
-    public String getNAME_REAL() {
-        return NAME_REAL;
-    }
-    public String getEMAIL_REAL() {
-        return EMAIL_REAL;
-    }
-    public String getPASSWORD_REAL() {
-        return PASSWORD_REAL;
-    }
     public String generateRandomLengthString(int length) {
         return RandomStringUtils.randomAlphanumeric(length);
     }
@@ -40,4 +25,16 @@ public class TestData {
         return FILLING;
     }
 
+    private ApiClient apiClient = new ApiClient();
+    private final User user = User.createRandomUser();
+    @Step("Get user credentials")
+    public UserCredentials getCreds() {return UserCredentials.getCredentialsFromUser(user);}
+    @Step("Register random user")
+    public UserData registerRandomUser() {
+        return apiClient.createUser(user).extract().body().as(UserData.class);
+    }
+    @Step("Login user to get Access token if it was created")
+    public UserData loginUser(UserCredentials creds) {
+        return apiClient.loginUser(creds).extract().body().as(UserData.class);
+    }
 }

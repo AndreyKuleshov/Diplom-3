@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import site.nomoreparties.stellarburgers.pages.HomePage;
 
-public class GoToConstructorTest extends goToConstructorBaseClass {
+public class GoToConstructorTest extends GoToConstructorBaseClass {
     HomePage homePage = new HomePage(driver);
     @Test
     @DisplayName("Constructor link leads to construstor page")

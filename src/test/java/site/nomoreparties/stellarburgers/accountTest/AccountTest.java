@@ -21,7 +21,7 @@ public class AccountTest extends AccountBaseClass {
     public void checkNameMatchesRealNameTest() {
         String name = homePage.clickAccountLinkAfterLogin()
                 .getNameValue();
-        Assert.assertEquals(testData.getNAME_REAL(), name);
+        Assert.assertEquals(creds.getName(), name);
     }
     @Test
     @DisplayName("Logged in user. Real Email is displayed")
@@ -29,6 +29,6 @@ public class AccountTest extends AccountBaseClass {
     public void checkEmailMatchesRealEmailTest() {
         String email = homePage.clickAccountLinkAfterLogin()
                 .getEmailValue();
-        Assert.assertEquals(testData.getEMAIL_REAL(), email);
+        Assert.assertEquals(creds.getEmail(), email);
     }
 }

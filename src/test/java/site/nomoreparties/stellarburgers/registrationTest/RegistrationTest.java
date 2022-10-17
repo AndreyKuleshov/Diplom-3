@@ -15,9 +15,9 @@ public class RegistrationTest extends RegistrationBaseClass {
     public void successfulRegistrationTest() {
         Assert.assertTrue(homePage.clickAccountLink()
                 .registerLinkClick()
-                .inputName(testData.generateRandomLengthString(10))
-                .inputEmail(testData.getEMAIL())
-                .inputPassword(testData.getPASSWORD())
+                .inputName(creds.getName())
+                .inputEmail(creds.getEmail())
+                .inputPassword(creds.getPassword())
                 .registerButtonClickSuccess()
                 .enterHeadingIsVisible());
     }
@@ -27,8 +27,8 @@ public class RegistrationTest extends RegistrationBaseClass {
     public void unsuccessfulRegistrationTestPasswordFiveSymbols() {
         Assert.assertTrue(homePage.clickAccountLink()
                 .registerLinkClick()
-                .inputName(testData.generateRandomLengthString(10))
-                .inputEmail(testData.getEMAIL())
+                .inputName(creds.getName())
+                .inputEmail(creds.getEmail())
                 .inputPassword(testData.generateRandomLengthString(5))
                 .registerButtonClickFailure()
                 .passwordErrorIsVisible());
@@ -39,8 +39,8 @@ public class RegistrationTest extends RegistrationBaseClass {
     public void unsuccessfulRegistrationTestPasswordThreeSymbols() {
         Assert.assertTrue(homePage.clickAccountLink()
                 .registerLinkClick()
-                .inputName(testData.generateRandomLengthString(10))
-                .inputEmail(testData.getEMAIL())
+                .inputName(creds.getName())
+                .inputEmail(creds.getEmail())
                 .inputPassword(testData.generateRandomLengthString(3))
                 .registerButtonClickFailure()
                 .passwordErrorIsVisible());
@@ -52,8 +52,8 @@ public class RegistrationTest extends RegistrationBaseClass {
     public void unsuccessfulRegistrationTestPasswordOneSymbol() {
         Assert.assertTrue(homePage.clickAccountLink()
                 .registerLinkClick()
-                .inputName(testData.generateRandomLengthString(10))
-                .inputEmail(testData.getEMAIL())
+                .inputName(creds.getName())
+                .inputEmail(creds.getEmail())
                 .inputPassword(testData.generateRandomLengthString(1))
                 .registerButtonClickFailure()
                 .passwordErrorIsVisible());

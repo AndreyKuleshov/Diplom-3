@@ -65,7 +65,7 @@ public class HomePage {
     }
     @Step("HomePage. Place order button is displayed")
     public HomePage placeOrderButtonIsDisplayed() {
-        placeOrderButton.isDisplayed();
+        new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOf(placeOrderButton));
         return new HomePage(driver);
     }
     @Step("HomePage. Constructor header is visible")

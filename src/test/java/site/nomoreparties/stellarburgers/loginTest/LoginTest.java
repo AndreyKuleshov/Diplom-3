@@ -14,12 +14,12 @@ public class LoginTest extends LoginBaseClass {
     public void loginFromMainPage() {
         HomePage homePage = new HomePage(driver);
         String name = homePage.clickEnterButton()
-                .inputEmail(testData.getEMAIL_REAL())
-                .inputPassword(testData.getPASSWORD_REAL())
+                .inputEmail(creds.getEmail())
+                .inputPassword(creds.getPassword())
                 .enterButtonClick()
                 .clickAccountLinkAfterLogin()
                 .getNameValue();
-        Assert.assertEquals(testData.getNAME_REAL(), name);
+        Assert.assertEquals(creds.getName(), name);
     }
     @Test
     @DisplayName("Login from account page")
@@ -27,12 +27,12 @@ public class LoginTest extends LoginBaseClass {
     public void loginFromAccountPage() {
         HomePage homePage = new HomePage(driver);
         String name = homePage.clickAccountLink()
-                .inputEmail(testData.getEMAIL_REAL())
-                .inputPassword(testData.getPASSWORD_REAL())
+                .inputEmail(creds.getEmail())
+                .inputPassword(creds.getPassword())
                 .enterButtonClick()
                 .clickAccountLinkAfterLogin()
                 .getNameValue();
-        Assert.assertEquals(testData.getNAME_REAL(), name);
+        Assert.assertEquals(creds.getName(), name);
     }
     @Test
     @DisplayName("Login from registration page")
@@ -42,12 +42,12 @@ public class LoginTest extends LoginBaseClass {
         String name = homePage.clickAccountLink()
                 .registerLinkClick()
                 .clickLoginButton()
-                .inputEmail(testData.getEMAIL_REAL())
-                .inputPassword(testData.getPASSWORD_REAL())
+                .inputEmail(creds.getEmail())
+                .inputPassword(creds.getPassword())
                 .enterButtonClick()
                 .clickAccountLinkAfterLogin()
                 .getNameValue();
-        Assert.assertEquals(testData.getNAME_REAL(), name);
+        Assert.assertEquals(creds.getName(), name);
     }
     @Test
     @DisplayName("Login from password recovery page")
@@ -57,12 +57,12 @@ public class LoginTest extends LoginBaseClass {
         String name = homePage.clickAccountLink()
                 .recoverPasswordLinkClick()
                 .enterLinkClick()
-                .inputEmail(testData.getEMAIL_REAL())
-                .inputPassword(testData.getPASSWORD_REAL())
+                .inputEmail(creds.getEmail())
+                .inputPassword(creds.getPassword())
                 .enterButtonClick()
                 .clickAccountLinkAfterLogin()
                 .getNameValue();
-        Assert.assertEquals(testData.getNAME_REAL(), name);
+        Assert.assertEquals(creds.getName(), name);
     }
 
 }

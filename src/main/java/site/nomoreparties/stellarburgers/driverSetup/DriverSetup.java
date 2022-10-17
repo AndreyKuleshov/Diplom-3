@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import site.nomoreparties.stellarburgers.pages.HomePage;
-import site.nomoreparties.stellarburgers.testData.TestData;
 
 import java.time.Duration;
 
@@ -32,10 +31,10 @@ public class DriverSetup {
         return driver;
     }
     @Step("Login")
-    public void login(HomePage homePage, TestData testData) {
+    public void login(HomePage homePage, String email, String password) {
         homePage.clickEnterButton()
-                .inputEmail(testData.getEMAIL_REAL())
-                .inputPassword(testData.getPASSWORD_REAL())
+                .inputEmail(email)
+                .inputPassword(password)
                 .enterButtonClick();
     }
 
